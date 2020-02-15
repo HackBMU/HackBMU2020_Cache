@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Contact Us</title>
+	<style>
+        *{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+            }
+
+        .contact-section{
+            background: url(https://i.postimg.cc/8czRgD7H/1.jpg) no-repeat center;
+            background-size: cover;
+            padding: 40px 0;
+        }
+
+        .contact-section h1{
+            text-align: center;
+            color: #ddd;
+        }
+
+        .border{
+            width: 100px;
+            height:10px;
+            background: #34495e;
+            margin: 40px auto;
+        }
+
+        .contact-form{
+            max-width: 450px;
+            margin: auto;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .contact-form-text{
+            display: block;
+            width: 600px;
+            box-sizing:border-box;
+            margin: 16px 0;
+            border: 0;
+            background: #111;
+            padding: 20px 40px;
+            outline: none;
+            color: #ddd;
+            transition: 0.5s;
+        }
+
+        .contact-form-text:focus{
+            box-shadow: 0 0 10px 4px #34495e;
+        }
+
+        textarea.contact-form-text{
+            resize: none;
+            height: 120px;
+        }
+
+        .contact-form-btn{
+            float: left;
+            border:0;
+            background: #34495e;
+            color: #fff;
+            padding: 12px 50px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .contact-form-btn:hover{
+            background: #2980b9;
+        }
+
+    </style>
+</head>
+<body>
+	<div class="contact-section">
+		<h1>Contact Us</h1>
+		<div class="border"></div>
+		<form  class="contact-form" action="index.html"  method="post">
+			<input type="text" class="contact-form-text" placeholder="Your Name">
+			<input type="email" class="contact-form-text" placeholder="Your E-Mail">
+			<input type="text" class="contact-form-text" placeholder="Your Phone Number">
+			<textarea class="contact-form-text" placeholder="Your Message here "></textarea>
+			<input type="Submit" class="contact-form-btn" value="Send">
+		</form>
+	</div>
+	<!-- <div class="map">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d3500.4598704085092!2d77.11102211508354!3d28.675887182400675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x390d038e0dee2897%3A0x84bb3fed8b1c51f9!2sBharati+Vidyapeeth&#39;s+College+of+Engineering%2C+A-4+Block%2C+Baba+Ramdev+Marg%2C+Shiva+Enclave%2C+Paschim+Vihar%2C+New+Delhi%2C+Delhi+110063!3m2!1d28.6758872!2d77.11321079999999!5e0!3m2!1sen!2sin!4v1552086677677" width="300" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div> -->
+</body>
+</html>

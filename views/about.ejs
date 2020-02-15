@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Our Developer</title>
+	<style>
+        *{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: #34495e;
+        }
+        .team-section{
+            overflow: hidden;
+            text-align: center;
+            background: #34495e;
+            padding: 60px;
+        }
+        .team-section h1{
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            color: white;
+            font-size: 40px;
+        }
+        .border{
+            display: block;
+            margin: auto;
+            width: 160px;
+            height: 3px;
+            background: #3498db;
+            margin-bottom: 40px;
+        }
+        .ps{
+            margin-bottom: 40px;
+        }
+        .ps a{
+            display: inline-block;
+            margin: 0 30px;
+            width: 160px;
+            height: 160px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+        .ps a img{
+            width: 100%;
+            filter: grayscale(100%);
+            transition: 0.4s all;
+        }
+        .ps a:hover > img{
+            filter: none;
+        }
+        .section{
+            width: 600px;
+            margin: auto;
+            font-size: 20px;
+            color: white;
+            text-align: justify;
+            height: 0;
+            overflow: hidden;
+        }
+        .section:target{
+            height: auto;
+        }
+        .name{
+            display: block;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+	<div class="team-section">
+		<h1>The Team</h1>
+		<span class="border"></span>
+		<div class="ps">
+			<!-- <a href="#p1"><img src="https://i.postimg.cc/Hxh5Z7gc/takephoto.jpg" alt=""></a> -->
+			<a href="#p2"><img src="https://i.postimg.cc/g26cQkJq/Webp-net-resizeimage.jpg" alt=""></a>
+			<a href="#p3"><img src="https://i.postimg.cc/mr1yqMfZ/53217300-2077003245716843-5350213899901730816-n.jpg" alt=""></a>
+		</div>
+		<div class="section" id="p2">
+			<span class="name">Mohit Arya</span>
+			<span class="border"></span>
+            <p>Python Programmer</p>
+            <p>Student</p>
+            <p>B.tech Information Technology (2nd year)</p>
+            <p>Bharati Vidyapeeth College of Engineering,New Delhi</p>
+		</div>
+		<div class="section" id="p3">
+			<span class="name">Hrithik Malik</span>
+			<span class="border"></span>
+            <p>Full Stack Developer</p>
+            <p>Student</p>
+            <p>B.tech Computer Science (2nd year)</p>
+            <p>Bharati Vidyapeeth College of Engineering,New Delhi</p>
+		</div>
+	</div>
+</body>
+</html>
