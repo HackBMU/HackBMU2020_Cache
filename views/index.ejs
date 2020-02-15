@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <link rel="shortcut icon" href="http://www.iconj.com/ico/j/2/j2pl6xkv2d.ico" type="image/x-icon" />
+        <link href='/css/styles.css' rel='stylesheet' type='text/css'/>
+        <link href='/css/vitals.css' rel='stylesheet' type='text/css'/>
+        <link href='/css/keyboard.css' rel='stylesheet' type='text/css'/>
+        <link rel='stylesheet' href='//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css'>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <script type="text/javascript" src="//media.twiliocdn.com/sdk/js/client/v1.4/twilio.min.js"></script>
+        <meta name='viewport' content='width=device-width, initial-scale=1'/>
+        <!-- <script src="/public/js/twilio.js"></script> -->
+        <meta charset='UTF-8'>
+        <title> VisionTrack </title>
+        <script type="text/javascript" src="//media.twiliocdn.com/sdk/js/client/v1.4/twilio.min.js"></script>
+        <style>
+        #gb1{
+            text-decoration: none;
+            background: transparent;
+            border:none;
+            outline: none;
+            color: #fff;
+            font-weight: bolder;
+            padding:auto;
+            cursor: pointer;
+            text-align: center;
+            width:50px;
+            height: 500px;
+        }
+        </style>
+    </head>
+    <script>
+        alert("Press Q to enable script");
+    </script>
+
+
+    <!-- <script src="/public/js/twilio.js"></script> -->
+    <body>
+        <a id="gb1" href="/">Go back</a>
+        <div class=intro>
+            <h1>Welcome to VisionTrack <h2 style="padding-left:30px;">     Help is just one look away!</h2></h1>
+
+        </div>
+        <!-- <a class="access-only" href="/public/php/twilio_work.php"> send text!!! </a> -->
+        <!--vitals menu-->
+        <div class="mainmenu">
+            <nav class="menu1" id="menu1">
+                <input checked="checked" class="menu-toggler1" id="menu-toggler1" type="checkbox"></input> <!--checked="checked"-->
+                <label style="margin-top:30%" for="menu-toggler1"><i class="fa fa-heartbeat"></i><p>Vitals Chart</p></label>
+                <div class="vitals" id="vitals">
+                <div class="ecg">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="-40px"
+    	 viewBox="-470 260 500 50" xml:space="preserve">
+                    <polyline fill="none" class="ecg" stroke="#4eab4b" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="-470,281
+    	-436,281 -418.9,281 -423.9,281 -363.2,281 -355.2,269 -345.2,303 -335.2,263 -325.2,291
+    	-319.2,281 100,281 "/>
+                    </svg>
+                </div>
+                <div class="circles" ng-app="app" ng-controller="MainController">
+                    <div class="circle-chart" ng-repeat="trait in traits" circle circle-value="trait.level" circle-delay="$index * 50">
+                        <span class= "title" style="font-weight: bold; color: white; padding-top: 50px; font-size: 30px; line-height: 20px;">{{ trait.passion }}</span>
+                        <p class="title">{{ trait.name }} {{ trait.status }}</p>
+                        <!-- <p class="title">{{ trait.status }}</p> -->
+                    </div>
+                </div>
+            </div>
+            </nav>
+            <!--middle menu-->
+            <nav class="menu" id="menu">
+                <input class="menu-toggler" id="menu-toggler" type="checkbox"></input> <!--checked="checked"-->
+                <label  for="menu-toggler"><p>Make Request</p></label>
+                <ul></a>
+                    
+                    <li class="menu-item"><a class ="access-only" id = "menubutton" href="/call"><i title="Request a shower" class="fa fa-bathtub"></i></a></li>
+                    <li class="menu-item"><a class ="access-only" id = "menubutton" href="/call"><i title="Assistance for bathroom" class="fa fa-bell"></i></a></li>
+                    <li class="menu-item"><a class ="access-only" id = "menubutton" href="/call"><i title="Request Food" class="fa fa-cutlery"></i></a></li>
+                    <li class="menu-item"><a class ="access-only" id = "menubutton" href="/call"><i title="Request Water" class="fa fa-coffee"></i></a></li>
+                    <li class="menu-item"><a class ="access-only" href="/call" id="discomfort"><i title="Report Discomfort" class="fa fa-meh-o"></i></a>
+                   
+                    <div class="fbody" id="fbody">
+                        <img class="bodymap" id="bodymap" src="/images/bbodymap.png"></img>
+                    </div>
+                    
+                    <div class="bbody" id="bbody">
+                        <img class="bodymap" id="bodymap" src="/images/fbodymap.png"></img>
+                    </div>
+                   
+                    <p id="questionnaire">Where is your discomfort?</p>
+                    </li>
+                    
+                    <li class="menu-item"><a class ="access-only" href="/call"><i title="Noise complaint" class="fa fa-deafness"></i></a></li>
+                    <li class="menu-item"><a class ="access-only" href="/call" id="users"><i title="Toggle Visitor Status" class="fa fa-users"></i></a>
+                        <div class="toggle" id="toggle">
+                            <span class="toggle-on-off" data-on="<i class='fa fa-check' aria-hidden='true'></i>" data-off="<i class='fa fa-ban' aria-hidden='true'></i>"></span>
+                        </div>
+                        <p id="visitors">Visitor Status</p>
+                    </li> <!--fa-user-times-->
+                    
+                </ul>
+            </nav>
+        </div>
+        <!--text menu-->
+        <div style="left:50px;" class="container" id="goback">
+        <div class="chevron"style="margin-left:0px;"></div>
+        <div class="chevron"style="margin-left:0px;"></div>
+        <div class="chevron"style="margin-left:0px;"></div>
+        </div>
+        <nav class="menu3" id="menu3">
+            <input class="menu-toggler3" id="menu-toggler3" type="checkbox"></input> <!--checked="checked"-->
+            <label style="margin-top:30%" for="menu-toggler3"><i class="fa fa-envelope-open"></i><p>Messenger Server</p></label>
+            <!-- <input type="text" id="osk_input" placeholder="Input Text Here" readonly /> -->
+
+<div class="osk_box" id="osk_box">
+    <form method="POST" action="/msg">
+        
+            <input type="text" name="msg" id="osk_input" placeholder="Input Text Here" readonly />
+            <button type="submit" style="background-color: rgb(61, 57, 121);
+            border: none;
+            color:white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;">Send Text </button>
+        
+    </form>
+    
+    <div class="osk_keyrow row-01">
+		<div class="osk_key osk_number" id="osk_key-1">1</div>
+		<div class="osk_key osk_number" id="osk_key-2">2</div>
+		<div class="osk_key osk_number" id="osk_key-3">3</div>
+		<div class="osk_key osk_number" id="osk_key-4">4</div>
+		<div class="osk_key osk_number" id="osk_key-5">5</div>
+		<div class="osk_key osk_number" id="osk_key-6">6</div>
+		<div class="osk_key osk_number" id="osk_key-7">7</div>
+		<div class="osk_key osk_number" id="osk_key-8">8</div>
+		<div class="osk_key osk_number" id="osk_key-9">9</div>
+		<div class="osk_key osk_number" id="osk_key-0">0</div>
+		<!-- <div class="osk_key osk_shift" id="osk_key-shift_right"><span class="icon">arrow_upward</span></div>
+	</div> -->
+	<div class="osk_keyrow row-02">
+		<div class="osk_key osk_letter" id="osk_key-q">q</div>
+		<div class="osk_key osk_letter" id="osk_key-w">w</div>
+		<div class="osk_key osk_letter" id="osk_key-e">e</div>
+		<div class="osk_key osk_letter" id="osk_key-r">r</div>
+		<div class="osk_key osk_letter" id="osk_key-t">t</div>
+		<div class="osk_key osk_letter" id="osk_key-y">y</div>
+		<div class="osk_key osk_letter" id="osk_key-u">u</div>
+		<div class="osk_key osk_letter" id="osk_key-i">i</div>
+		<div class="osk_key osk_letter" id="osk_key-o">o</div>
+		<div class="osk_key osk_letter" id="osk_key-p">p</div>
+	</div>
+	<div class="osk_keyrow row-03">
+		<div class="osk_key osk_letter" id="osk_key-a">a</div>
+		<div class="osk_key osk_letter" id="osk_key-s">s</div>
+		<div class="osk_key osk_letter" id="osk_key-d">d</div>
+		<div class="osk_key osk_letter" id="osk_key-f">f</div>
+		<div class="osk_key osk_letter" id="osk_key-g">g</div>
+		<div class="osk_key osk_letter" id="osk_key-h">h</div>
+		<div class="osk_key osk_letter" id="osk_key-j">j</div>
+		<div class="osk_key osk_letter" id="osk_key-k">k</div>
+        <div class="osk_key osk_letter" id="osk_key-l">l</div>
+                
+		
+	<div class="osk_keyrow row-04">
+		<div class="osk_key osk_shift" id="osk_key-shift_left"><span class="icon">arrow_upward</span></div>
+		<div class="osk_key osk_letter" id="osk_key-z">z</div>
+		<div class="osk_key osk_letter" id="osk_key-x">x</div>
+		<div class="osk_key osk_letter" id="osk_key-c">c</div>
+		<div class="osk_key osk_letter" id="osk_key-v">v</div>
+		<div class="osk_key osk_letter" id="osk_key-b">b</div>
+		<div class="osk_key osk_letter" id="osk_key-n">n</div>
+		<div class="osk_key osk_letter" id="osk_key-m">m</div>
+		<div class="osk_key osk_backspace" id="osk_key-backspace"><span class="icon">backspace</span></div>
+</div><div class="osk_key osk_spacebar" id="osk_key-shift_left">space</div>
+	<div class="osk_keyrow row-05">
+            <div class="osk_key osk_enter" id="osk_key-enter"><span class="icon">
+                    Save Message
+                </span></div><!--should send to twilio otherwise add back class="osk_key osk_enter" to div-->
+            </div>
+	</div>
+</div>
+        </nav>
+    </body>
+
+    <script src="/js/d3.v3.min.js"></script>
+    <script src="/js/eyegaze.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/js/toggle.js"></script>
+    <script src="/js/vitals.js"></script>
+    <script src="/js/keyboard.js"></script>
+
+</html>

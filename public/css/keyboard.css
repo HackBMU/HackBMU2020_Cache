@@ -1,0 +1,274 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+html{
+	height: 100%;
+}
+body {
+	height: 100%;
+	width:100%;
+	color: #fff;
+	font-family: 'Raleway', Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 140%;
+	margin: 0;
+	min-height: 100vh;
+	padding: 0;
+    z-index: 1000000;
+	text-align: center;
+	width: 100%;
+}
+
+/* PEN STYLES ========== */
+input#osk_input {
+	-webkit-appearance: none;
+	appearance: none;
+	background: rgba(0,0,0,0);
+	border: 1px solid rgba(255,255,255,.1);
+	border-radius: 0;
+	box-shadow: 0 1px 1px rgba(0,0,0,.5);
+	box-sizing: border-box;
+	color: #fff;
+	display: block;
+	font-family: 'Raleway', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	height: 40px;
+	line-height: 40px;
+	margin: 0 auto 2vw;
+	padding: 0 1vw;
+	text-align: center;
+	-webkit-transition: all 250ms ease;
+	transition: all 250ms ease;
+	width: 100vw;
+}
+input#osk_input:focus {
+	outline: none;
+	border: 1px solid rgba(255,255,255,.4);
+}
+.osk_box {
+	background: rgba(255,255,255,0);
+	box-sizing: border-box;
+	display: none; /* should be block. Set this to none to reveal keyboard on demand. */
+	margin: 2vw auto 0;
+	overflow: hidden;
+	padding: 4vw 0 8vw;
+	width: 100%;
+}
+.osk_keyrow {
+	clear: both;
+	color: #fff;
+	display: block;
+	overflow: hidden;
+	padding: 1vw 0;
+}
+.osk_keyrow.row-01 {
+	padding-right: 3vw;
+}
+.osk_keyrow.row-02 {
+	padding-right: 5vw;
+}
+.osk_keyrow.row-03 {
+	padding-left: 4vw;
+}
+.osk_keyrow.row-04 {
+	padding-right: 10vw;
+}
+.osk_keyrow.row-05 {
+	padding-right: 9vw;
+}
+.osk_key {
+	background: #388bc9;
+	background: -webkit-radial-gradient(#2e1e76, #000);
+	background: -moz-radial-gradient(#2e1e76, #000);
+	background: radial-gradient(#5e5189, #615f67);
+	background-position: 30% 20%;
+	background-size: 200%;
+	border: 1px solid #000;
+	border-radius: 4px;
+	display: inline-block;
+	font-size: 16px;
+	/* line-height: 8vw; */
+	margin: 0 .2vw;
+	padding: 0;
+	min-width: 7vw;
+	-webkit-transition: all 250ms ease-in-out;
+	transition: all 250ms ease-in-out;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	vertical-align: top;
+}
+.osk_key:hover {
+	background: #154b96;
+	border: 1px solid #ccc;
+	color: #fff;
+	cursor: pointer;
+}
+
+.shifted .osk_letter {
+	text-transform: uppercase;
+}
+.osk_backspace {
+	font-family: 'Material Icons';
+	padding: 0;
+}
+.osk_enter {
+	width: 32vw;
+}
+.osk_shift {
+	font-family: 'Material Icons';
+	width: 12vw;
+}
+.shifted .osk_shift {
+	background: #333;
+	color: #fff;
+}
+.osk_shift span.icon {
+	display: block;
+	-webkit-transition: -webkit-transform 300ms ease;
+	transition: transform 300ms ease;
+}
+.shifted #osk_key-shift_left span.icon {
+	-webkit-transform: rotate3d(0, 0, 1, 179deg);
+	transform: rotate3d(0, 0, 1, 179deg);
+}
+.shifted #osk_key-shift_right span.icon {
+	-webkit-transform: rotate3d(0, 0, 1, -179deg);
+	transform: rotate3d(0, 0, 1, -179deg);
+}
+.osk_spacebar {
+	width: 55vw;
+}
+
+
+@media (min-width: 1000px) {
+
+input#osk_input {
+	font-size: 25px;
+	height: 60px;
+	line-height: 60px;
+	margin: 0 auto 20px;
+	padding: 0 10px;
+	width: 1000px;
+}
+.osk_box {
+	padding: 40px 0 80px;
+}
+.osk_keyrow {
+	padding: 5px;
+}
+.osk_keyrow.row-01 {
+	width: 100%;
+}
+.osk_keyrow.row-02 {
+	padding-right: 50px;
+}
+.osk_keyrow.row-03 {
+	padding-left: 50px;
+}
+.osk_keyrow.row-04 {
+	padding-right: 100px;
+}
+.osk_keyrow.row-05 {
+	padding-right: 90px;
+}
+.osk_key {
+	box-shadow: 0 2px 2px rgba(0,0,0,.1);
+	font-size: 40px;
+	line-height: 45px;
+	margin: 0 4px;
+	padding: 0;
+	min-width: 110px;
+}
+.osk_number,
+.osk_letter {
+	font-size: 30px;
+}
+.osk_backspace {
+	padding: 0 8px;
+}
+.osk_enter {
+	font-size: 20px;
+	width: 200px;
+}
+.osk_shift {
+	width: 110px;
+}
+.osk_spacebar {
+	text-align:center;
+	width: 800px;
+}
+
+/*RETURN BUTTON FROM KEYBOARD */
+.container {
+  transform: rotate(90deg);
+  position: absolute;
+  left: 40%;
+  top: 18.5%;
+  width: 24px;
+  height: 24px;
+}
+
+.chevron {
+  position: absolute;
+  width: 28px;
+  height: 8px;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: #fff;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
+
+  }
+  33% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+	}
+}
