@@ -17,12 +17,12 @@ Technology Stack:
 HTML
 CSS
 JavaScript
+NodeJS
 MongoDB
 JSON
 Python
 JQuery
 Twilio API
-
 
 
 
