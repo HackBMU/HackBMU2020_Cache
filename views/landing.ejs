@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="https://i.postimg.cc/6QRJ8pTp/Picture1.png" type="icon/png">
+    <title>VisionTrack</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="assets/images/ico/favicon.png" />
+    <link rel="stylesheet" href="/css/Plugs.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div class="ms-main-container">
+      <div class="ms-preloader"></div>
+      <header class="ms-header navbar-white">
+        <nav class="ms-nav">
+          <div class="ms-logo">
+            <a href="index.html" data-type="page-transition">
+              <div class="logo-dark"><img src="logo-dark.svg" alt="logo image"></div>
+              <div class="logo-light current"><img src="https://i.postimg.cc/6QRJ8pTp/Picture1.png" alt="logo image"></div>
+            </a>
+          </div>
+          <button class="hamburger" type="button" data-toggle="navigation">
+          <span class="hamburger-box">
+            <span class="hamburger-label">Menu</span>
+            <span class="hamburger-inner"></span>
+          </span>
+          </button>
+          <div class="height-full-viewport">
+            <ul class="ms-navbar">
+              <li class="nav-item">
+                <a href="/" data-type="page-transition">
+                  <span class="ms-btn">Home</span>
+                  <span class="nav-item__label">Back To Home Page</span>
+                </a>
+              </li>
+              <li class="nav-item">
+              	 <%if(!currentUser){%>
+                    <a href="/login" data-type="page-transition"><span class="ms-btn">Login</span>
+                        <span class="nav-item__label">If already registered,click here!</span>
+                    </a>
+                 
+                
+            	</li>
+               <li class="nav-item">
+                <a href="/register" data-type="page-transition"><span class="ms-btn">Sign Up</span>
+                    <span class="nav-item__label">Join Us!</span>
+                </a>
+                
+              </li>
+               <%}else{%>
+                    <li class="nav-item">
+                        <a href="#" data-type="page-transition"><span class="ms-btn">Signed in as <%=currentUser.username%></span>
+                        <span class="nav-item__label"></span>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout" data-type="page-transition"><span class="ms-btn">Logout</span> 
+                            <span class="nav-item__label"></span>
+                        </a>
+                    </li>
+                <%}%>  
+              <!-- <li class="nav-item">
+                <a href="gallery.html" data-type="page-transition">
+                  <span class="ms-btn">About VisionTrack</span>
+                  <span class="nav-item__label">All About the working</span>
+                </a>
+              </li> -->
+             
+              <li class="nav-item">
+                <a href="/about" data-type="page-transition">
+                  <span class="ms-btn">About Us</span>
+                  <span class="nav-item__label">Learn more about the Developers</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/contact" data-type="page-transition">
+                  <span class="ms-btn">Contact</span>
+                  <span class="nav-item__label">Get in touch and Find Us</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <main class="ms-container home-slider">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="slide-inner" data-swiper-parallax="45%">
+                <div class="overlay"></div>
+                <div class="slide-inner--image" style="background-image: url('https://i.postimg.cc/8czRgD7H/1.jpg')"></div>
+                <div class="slide-inner--info">
+                  <h1>Help is <br>Just One Look Away!</h1>
+                  <a href="/home" data-type="page-transition" class="ms-btn--slider">Get started</a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide-inner" data-swiper-parallax="45%">
+                <div class="overlay"></div>
+                <div class="slide-inner--image" style="background-image: url('https://i.postimg.cc/XNzS4Yfm/wooozxh-296121-unsplash.jpg')">
+                </div>
+                <div class="slide-inner--info">
+                  <h1>Necessity<br>for cheaper Solution.</h1>
+                  <a href="/home" data-type="page-transition" class="ms-btn--slider">take a look</a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide-inner" data-swiper-parallax="45%">
+                <div class="overlay"></div>
+                <div class="slide-inner--image" style="background-image: url('https://i.postimg.cc/TwTLd96d/stephen-hawking-pbs.jpg')">
+                </div>
+                <div class="slide-inner--info">
+                  <h1>Early <br>Helping Devices.</h1>
+                  <a href="/home" data-type="page-transition" class="ms-btn--slider">take a look</a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide-inner" data-swiper-parallax="45%">
+                <div class="overlay"></div>
+                <div class="slide-inner--image" style="background-image: url('https://i.postimg.cc/4xDXZbcY/1-Convert-Image.jpg')">
+                </div>
+                <div class="slide-inner--info">
+                  <h1>Care<br>Whenever you need.</h1>
+                  <a href="/home" data-type="page-transition" class="ms-btn--slider">take a look</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-nav-btn">
+            <div class="swiper-button-prev swiper-button-white">prev</div>
+            <div class="swiper-button-next swiper-button-white">next</div>
+          </div>
+          <div class="expanded-timeline">
+            <div class="expanded-timeline__counter"><span></span><span></span></div>
+            <div class="swiper-pagination"></div>
+            <div class="scroll-message">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.5 15.98" class="scroll-svg"><title>Asset 1</title><g>
+              <g data-name="Layer 1"><polygon fill="#fff" points="0 4.64 0.71 5.34 3.85 2.2 3.85 15.98 4.85 15.98 4.85 2.2 8 5.34 8.71 4.64 4.35 0.29 0 4.64"></polygon><polygon fill="#fff" points="11.65 0 11.65 13.79 8.5 10.64 7.79 11.35 12.15 15.7 16.5 11.35 15.79 10.64 12.65 13.79 12.65 0 11.65 0"></polygon></g></g></svg>Scroll
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="text/javascript" src='/js/J1.js'></script>
+    <script type="text/javascript" src='/js/J3.js'></script>
+    <script type="text/javascript" src="/js/J2.js"></script>
+  </body>
+</html>
