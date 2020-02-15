@@ -1,4 +1,5 @@
 var express=require('express');
+var twilio = require("twilio");
 var bodyParser=require("body-parser");
 var path=require("path");
 var flash=require("connect-flash");
@@ -19,6 +20,11 @@ var UserSchema=new mongoose.Schema({
 UserSchema.plugin(passportLocalMongoose);
 var User=mongoose.model("User",UserSchema);
 
+
+var accountSid=keys.accountSid;
+var authToken=keys.authToken;
+
+const client = require('twilio')(accountSid, authToken);
 
 var port = process.env.PORT || 8000;
 var app=express();
@@ -81,7 +87,7 @@ app.get("/register",function(req,res){
 app.post("/register",function(req,res){
   var newUser=new User({username:req.body.username,phone:req.body.phone});
   User.register(newUser,req.body.password,function(err,user){
-      if(err){  
+      if(err){
       return res.render("register.ejs");
       }
       passport.authenticate("local")(req,res,function(){
@@ -104,7 +110,6 @@ app.post("/login",passport.authenticate("local",{
 
 app.get("/logout",function(req,res){
 req.logout(); 
-//   req.flash("success","logged you out");
 res.redirect("/");
 });
 
@@ -117,6 +122,11 @@ res.render("contact.ejs");
 })
 
 app.get("/home",isLoggedIn,(req,res)=>{ 
+  var spawn = require("child_process").spawn;
+  var process = spawn('python',["EyeTracking.py"] );
+  process.stdout.on('data', function(data) {
+      res.send(data.toString());
+  } )
   res.render("index.ejs");
 });
 
@@ -124,3 +134,55 @@ app.get("/home",isLoggedIn,(req,res)=>{
 app.get("/",(req,res)=>{
   res.render("landing.ejs");  
 });
+
+// ======================================================================
+
+app.get('/hello', function(req, res){
+  res.contentType('application/xml');
+  res.sendFile(__dirname +'/hello.xml');
+});
+const VoiceResponse = require('twilio').twiml.VoiceResponse;
+
+
+const response = new VoiceResponse();
+response.say('Hello World');
+
+console.log(response.toString());
+
+app.get("/call",(req,res)=>{
+  client.calls
+  .create({
+     url: 'http://demo.twilio.com/docs/voice.xml',
+     to: req.user.phone,
+     from: '+12679918917'
+   })
+  .then(call => console.log(call.sid))
+  .done();
+});
+
+app.post("/msg",isLoggedIn,function(req,res){
+  var msg=req.body.msg;
+  client.messages
+  .create({
+     body: msg,
+     from: '+12679918917',
+     to:req.user.phone
+   })
+  .then(message => console.log(message.sid))
+  .done();
+   res.redirect("/home");
+});
+
+
+app.get("/call",(req,res)=>{
+  client.calls.create(
+    {
+      to: '+917503183343',
+      from: '+12679918917',
+      url: 'http://demo.twilio.com/docs/voice.xml',
+    },
+    (err, call) => {
+      process.stdout.write(call.sid);
+    }
+  );
+})
