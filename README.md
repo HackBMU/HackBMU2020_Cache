@@ -27,7 +27,15 @@ Python
 JQuery
 Twilio API
 
-
-
-
+### Instructions to run
+1. Install all the dependencies of node.js and python
+2. make a keys.js file in config folder
+  Format of keys.js:
+  keys={
+    accountSid:"XXX",
+    authToken:"XXX",
+    mongokey:"XXX"
+  }
+  module.exports=keys;
+3. Finally to run it on localhost:8000, run command "node app.js" in terminal. 
 
